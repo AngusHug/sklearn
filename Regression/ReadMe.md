@@ -8,7 +8,7 @@
  
 
 * 线性回归是一种带有系数的线性模型最小化数据集中观测目标之间的残差平方和 ,并且用线性逼近法预测目标。 解决的数学问题
- ![image](https://github.com/AngusHug/sklearn/blob/master/Regression/Image/Image2.png)
+ ![image](https://github.com/AngusHug/sklearn/blob/master/Regression/Image/Image12.png)
                
 * to minimize the residual sum of squares between the observed targets in the datasets,and targets predicted by the linear approximation
 * **<u>最小二乘法是现行假设下的一种有闭式解的参数求解方法，最终结果为全局最优</u>**
@@ -42,7 +42,9 @@ reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])    # X arraysprint(reg.coef_)
 #### Ridge regression
 
     * 脊回归通过添加惩罚项解决最小二乘法的问题
+    
 ![image](https://github.com/AngusHug/sklearn/blob/master/Regression/Image/Image3.png)
+
     * 脊回归和一般线性回归的区别是在损失函数上增加了一个L2的正则化项，和一个调节线性回归项和正则化项全中的系数alpha.
 
 ```python
