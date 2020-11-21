@@ -29,7 +29,7 @@ reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])    # X arraysprint(reg.coef_)
 
 * 通常如果有多个w解，都能使均方误差最小化。选择哪个解作为输出将由学习算法的归纳偏好决定，常见的做法是引入<u>正则项</u> ======》主要为了限制模型多重共线性w的增长(也是常见的防止过拟合方法)，在模型原来的目标函数加上一个惩罚项(求解线性回归的解，对最小二乘法的变形,优化最小二乘法)。模型对输入w中噪声的敏感度就会降低。===》脊回归和套索回归的基本思想
     * 如果惩罚项是L1正则化，就是Ridge回归，岭回归。
-    * 如果使用的是L1正则化，就是Lasso回归
+    * 如果使用的是L2正则化，就是Lasso回归
     
 ![image](https://github.com/AngusHug/sklearn/blob/master/Regression/Image/Image2.png)
 
@@ -165,8 +165,9 @@ ARD与贝叶斯海脊回归非常相似，但可能导致更稀疏的系数w[1][
 
 ### Logistic regression逻辑回归
 
-逻辑回归，尽管它的名字，是一个线性模型的分类，而不是回归。Logistic回归在文献中也被称为logit回归、最大熵分类(MaxEnt)或对数线性分类器。在这个模型中，描述单个试验可能结果的概率用逻辑函数来建模。
-LogisticRegression实现了逻辑回归，此时先可以选择l1,l2或者Elastic-Net正则化拟合二进制，
+逻辑回归，尽管它的名字，是一个线性模型的分类，而不是回归。
+Logistic回归在文献中也被称为logit回归、最大熵分类(MaxEnt)或对数线性分类器。在这个模型中，描述单个试验可能结果的概率用逻辑函数来建模。
+LogisticRegression实现了逻辑回归，此时先可以选择L1,L2或者Elastic-Net正则化拟合二进制，
 One-vs-Rest或多项逻辑回归。
 ![image](https://github.com/AngusHug/sklearn/blob/master/Regression/Image/Image11.png)
 
