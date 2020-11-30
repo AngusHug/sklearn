@@ -17,7 +17,7 @@ def get_topic(bs4_html):
     index = 1
     line = ""
     for topic in topics:
-        line = line + topic.text.strip() + "\t"
+        line = line + topic.text.strip(" ") + "\t"
         if index % 4 == 0:
             topic_content = topic_content + line + "\r\n"
             line = ""
@@ -29,7 +29,7 @@ def get_comments(bs4_html):
     commentContent = ""
     for comment in comments:
         line = comment.h2.text.strip() + "\t" \
-               + comment.find("div", class_="short-content").text.strip()
+               + comment.find("div", class_="short-content").text.strip(" ")
         line = re.sub("\\(展开\\)|(\r\n)", "", line)
         commentContent = commentContent + line
         # commentContent = commentContent + comment.text.strip() + "\r\n"
@@ -71,7 +71,7 @@ if __name__ == '__main__':
             bs4_topic_html = BeautifulSoup(topic_html.text, 'html.parser')
             topic_content = topic_content + get_topic(bs4_topic_html)
         else:
-            topic_spide_log = topic_spide_log + f"failed to spide {topic_url} " + "\r\n"
+            topic_spide_log = topic_spide_log + f"failed to spide {topic_url} " + "\n"
         time.sleep(random.randint(4, 7))
     
     # 评论
@@ -87,7 +87,7 @@ if __name__ == '__main__':
             bs4_comment_html = BeautifulSoup(comment_html.text, 'html.parser')
             comment_content = comment_content + get_comments(bs4_comment_html)
         else:
-            comment_spide_log = comment_spide_log + f"failed to spide {comment_url}" + "\r\n"
+            comment_spide_log = comment_spide_log + f"failed to spide {comment_url}" + "\n"
         time.sleep(random.randint(4, 7))
     
     # 指定数据路径
